@@ -1,2 +1,2 @@
 #ssr-react
-## added the react server side renderd app
+## added the react server side rendered app
