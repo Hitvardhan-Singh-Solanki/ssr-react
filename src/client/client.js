@@ -8,15 +8,11 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import Routes from "./routes";
 import reducers from './reducers';
-
-const store = createStore(reducers, {}, applyMiddleware(thunk));
-
-(function(){
-    ReactDOM.hydrate(
-        <Provider store={store}>
-            <BrowserRouter>
-                <div>{renderRoutes(Routes)}</div>
-            </BrowserRouter>
-        </Provider>, 
-    document.getElementById("root"));    
-}())
+const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk));
+ReactDOM.hydrate(
+    <Provider store={store}>
+        <BrowserRouter>
+            <div>{renderRoutes(Routes)}</div>
+        </BrowserRouter>
+    </Provider>, 
+document.getElementById("root"));    
